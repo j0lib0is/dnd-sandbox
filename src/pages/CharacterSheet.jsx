@@ -99,7 +99,7 @@ export default function CharacterSheet() {
               value={character.intelligence || 0}
               type='number'
               placeholder='Intelligence'
-              className='block w-full rounded-md bg-gray-800 border-gray-600 focus:border-purple-500 focus:ring-purple-500 sm:text-sm-purple-500 focus:ring-purple-500 sm:text-sm'
+              className='block w-full rounded-md bg-gray-800 border-gray-600 focus:border-purple-500 focus:ring-purple-500 sm:text-sm-purple-500 sm:text-sm'
               id='intelligence'
             />
           </label>
@@ -112,7 +112,7 @@ export default function CharacterSheet() {
               value={character.wisdom || 0}
               type='number'
               placeholder='Wisdom'
-              className='block w-full rounded-md bg-gray-800 border-gray-600 focus:border-purple-500 focus:ring-purple-500 sm:text-sm-purple-500 focus:ring-purple-500 sm:text-sm'
+              className='block w-full rounded-md bg-gray-800 border-gray-600 focus:border-purple-500 focus:ring-purple-500 sm:text-sm-purple-500 sm:text-sm'
               id='wisdom'
             />
           </label>
@@ -125,7 +125,7 @@ export default function CharacterSheet() {
               value={character.strength || 0}
               type='number'
               placeholder='Strength'
-              className='block w-full rounded-md bg-gray-800 border-gray-600 focus:border-purple-500 focus:ring-purple-500 sm:text-sm-purple-500 focus:ring-purple-500 sm:text-sm'
+              className='block w-full rounded-md bg-gray-800 border-gray-600 focus:border-purple-500 focus:ring-purple-500 sm:text-sm-purple-500 sm:text-sm'
               id='strength'
             />
           </label>

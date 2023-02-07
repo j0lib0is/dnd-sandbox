@@ -21,24 +21,24 @@ export default function Auth() {
   }
 
   return (
-    <div className="row flex-center flex">
-      <div className="col-6 form-widget" aria-live="polite">
-        <h1 className="header">Supabase + React</h1>
-        <p className="description">Sign in via magic link with your email below</p>
-        {loading ? (
-          'Sending magic link...'
-        ) : (
+    <div className='mx-auto max-w-sm bg-gray-700 border-solid border-1 border-gray-300 rounded-md p-4'>
+      <div className='bg-gray-700 border-solid border-1 rounded-md border-white'>
+        <h1 className='text-2xl font-medium'>Log In</h1>
+        <p className='text-sm mb-4'>Sign in via magic link with your email below</p>
+        {loading ? ('Sending magic link...') : (
           <form onSubmit={handleLogin}>
-            <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              className="inputField"
-              type="email"
-              placeholder="Your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <button className="button block" aria-live="polite">
+            <label>
+              <h5>Email</h5>
+              <input
+                id="email"
+                className='block w-full rounded-md bg-gray-800 border-gray-600 focus:border-purple-500 focus:ring-purple-500 sm:text-sm'
+                type="email"
+                placeholder="Your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </label>
+            <button className='mt-4 w-full bg-purple-500 text-white px-8 py-1 rounded-md' aria-live='polite'>
               Send magic link
             </button>
           </form>

@@ -70,7 +70,7 @@ const Account = ({ session }) => {
       {loading ? (
         'Saving ...'
       ) : (
-        <form onSubmit={updateProfile} className="form-widget">
+        <form onSubmit={updateProfile} className='mx-auto max-w-sm bg-gray-700 border-solid border-1 border-gray-300 rounded-md p-4'>
           <div>Email: {session.user.email}</div>
           <div>
             <label htmlFor="username">Name</label>

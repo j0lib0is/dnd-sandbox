@@ -26,7 +26,6 @@ export default function App() {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session)
     });
-    console.log(session);
 
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session)
@@ -35,24 +34,21 @@ export default function App() {
 
   return (
     <div className='max-w-2xl mx-auto'>
-      <div className='container' style={{ padding: '50px 0 100px 0' }}>
-        {!session ? <Auth /> : <Home />}
-      </div>
       <SheetListProvider>
         <SheetProvider>
           <Router>
             <nav className='w-full flex justify-center p-4'>
-              <Link className='mx-4 text-center' to='/'>Home</Link>
-              <Link className='mx-4 text-center' to='/characters'>My Characters</Link>
-              <Link className='mx-4 text-center' to='/new-character'>New Character</Link>
-              <Link className='mx-4 text-center' to='/account'>Account</Link>
+              {!session ? '' : <Link className='mx-4 text-center' to='/'>Home</Link>}
+              {!session ? '' : <Link className='mx-4 text-center' to='/characters'>My Characters</Link>}
+              {!session ? '' : <Link className='mx-4 text-center' to='/new-character'>New Character</Link>}
+              {!session ? '' : <Link className='mx-4 text-center' to='/account'>Account</Link>}
             </nav>
             <Routes>
-              <Route path='/' element={<Home />} />
+              <Route path='/' element={!session ? <Auth /> : <Home />} />
               <Route path='/characters' element={<Characters />} />
               <Route path='/character/:characterId' element={<CharacterSheet />} />
               <Route path='/new-character' element={<NewCharacter />} />
-              {/*<Route path='/account' element={<Account key={session.user.id} session={session} />} />*/}
+              <Route path='/account' element={<Account />} />
               <Route path='*' element={<Error />} />
             </Routes>
             <div className='text-center p-4'>
