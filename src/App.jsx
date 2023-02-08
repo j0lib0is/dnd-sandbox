@@ -6,11 +6,14 @@ import Auth from './components/Auth';
 import Account from './pages/Account';
 
 // Import Pages
-import Home from './pages/Home';
 import Characters from './pages/Characters';
 import CharacterSheet from './pages/CharacterSheet';
 import NewCharacter from './pages/NewCharacter';
 import Error from './pages/Error';
+
+// Import Components
+import NavInternal from './components/NavInternal';
+import NavExternal from './components/NavExternal';
 
 // Import Context
 import { SheetListProvider } from './context/SheetListContext';
@@ -37,18 +40,12 @@ export default function App() {
       <SheetListProvider>
         <SheetProvider>
           <Router>
-            <nav className='w-full flex justify-center p-4'>
-              {!session ? '' : <Link className='mx-4 text-center' to='/'>Home</Link>}
-              {!session ? '' : <Link className='mx-4 text-center' to='/characters'>My Characters</Link>}
-              {!session ? '' : <Link className='mx-4 text-center' to='/new-character'>New Character</Link>}
-              {!session ? '' : <Link className='mx-4 text-center' to='/account'>Account</Link>}
-            </nav>
+            {session ? <NavInternal /> : <NavExternal />}
             <Routes>
-              <Route path='/' element={!session ? <Auth /> : <Home />} />
-              <Route path='/characters' element={<Characters />} />
+              <Route path='/' element={!session ? <Auth /> : <Characters />} />
               <Route path='/character/:characterId' element={<CharacterSheet />} />
               <Route path='/new-character' element={<NewCharacter />} />
-              <Route path='/account' element={<Account />} />
+              <Route path='/account' element={<Account session={session}/>} />
               <Route path='*' element={<Error />} />
             </Routes>
             <div className='text-center p-4'>

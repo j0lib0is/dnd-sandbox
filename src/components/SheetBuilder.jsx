@@ -45,7 +45,7 @@ export default function SheetBuilder() {
       constitution: 0,
       id: 0
     });
-    navigate('/characters');
+    navigate('/');
   }
 
   return (
